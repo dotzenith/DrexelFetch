@@ -1,6 +1,8 @@
-import polars as pl
 import subprocess
 from pathlib import Path
+
+import polars as pl
+
 
 def get_courses_df() -> pl.DataFrame:
     """

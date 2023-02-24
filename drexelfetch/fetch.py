@@ -12,6 +12,7 @@ def info(course: str) -> dict:
     )
     return {key: value[0] for key, value in course_info.items()}
 
+
 def prereq(course: str) -> list:
     course_preqs = classes.filter(pl.col("prereqs").str.contains(course))
     return list(course_preqs.get_column("course number"))
