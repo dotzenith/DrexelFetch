@@ -11,9 +11,10 @@ python = "^3.11"
 polars = "^0.16.8"
 typer = "^0.7.0"
 kolorz = "^0.2.5"
+pyarrow = "^11.0.0"
 
 [tool.poetry.scripts]
-dfetch = "drexelfetch.fetch:main"
+dfetch = "drexelfetch.cli:main"
 
 [build-system]
 requires = ["poetry-core"]

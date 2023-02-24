@@ -1,29 +1,17 @@
-import subprocess
-from pathlib import Path
-
 import polars as pl
 
+from drexelfetch.helpers import get_courses_df
 
-def get_quotes_df() -> pl.DataFrame:
-    """
-    Returns the top-level git repo's path
-    """
+classes = get_courses_df()
+course_ids = list(classes.get_column("course number"))
 
-    git_repo = (
-        subprocess.Popen(
-            ["git", "rev-parse", "--show-toplevel"], stdout=subprocess.PIPE
-        )
-        .communicate()[0]
-        .rstrip()
-        .decode("utf-8")
+
+def info(course: str) -> dict:
+    course_info = classes.filter(pl.col("course number") == course).to_dict(
+        as_series=False
     )
+    return {key: value[0] for key, value in course_info.items()}
 
-    quotes_path = Path(f"{git_repo}/courses.csv")
-
-    return pl.read_csv(quotes_path, sep=",")
-
-def main():
-    print(get_quotes_df())
-
-if __name__ == "__main__":
-    print(get_quotes_df())
+def prereq(course: str) -> list:
+    course_preqs = classes.filter(pl.col("prereqs").str.contains(course))
+    return list(course_preqs.get_column("course number"))
