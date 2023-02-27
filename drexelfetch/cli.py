@@ -1,3 +1,7 @@
+"""
+The CLI interface for DrexelFetch
+"""
+
 import typer
 from kolorz import make_kolorz
 
@@ -12,11 +16,15 @@ course number,course name,credits,prereqs,desc
 
 
 @app.command()
-def search(course: str = typer.Argument(..., help="The course name, ex. CS 164")):
+def info(course: str = typer.Argument(..., help="The course name, ex. CS 164")):
     """
-    Search for information about a given course
+    Get information about a given course
     """
     course_info = fetch.info(course)
+    if course_info is None:
+        print("Course not found")
+        return
+
     print(
         f"{colors.red}{'Course ID:' : <14}{colors.end} {course_info['course number']}"
     )
@@ -35,8 +43,15 @@ def prereq(course: str = typer.Argument(..., help="The course name, ex. CS 164")
     """
     Find what other courses this given course is a prereq for
     """
-    for course in fetch.prereq(course):
-        print(course)
+    prereqs = fetch.prereq(course)
+
+    if prereqs is None:
+        print("Course not found")
+    elif len(prereqs) < 1:
+        print("This course is not a prereq to any other course")
+    else:
+        for course in prereqs:
+            print(course)
 
 
 def main():

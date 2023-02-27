@@ -1,3 +1,7 @@
+"""
+A singular helper for DrexelFetch
+"""
+
 import subprocess
 from pathlib import Path
 
@@ -6,7 +10,7 @@ import polars as pl
 
 def get_courses_df() -> pl.DataFrame:
     """
-    Returns the top-level git repo's path
+    Returns a polars DataFrame sourced from the courses.csv file
     """
 
     git_repo = (
