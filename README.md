@@ -6,7 +6,7 @@
   
   DrexelFetch is an incredibly simple tool to fetch information about Drexel Courses. 
 
-  **NOTE**: The data is sourced directly from the `courses.csv` file in the 'drexelfetch' package, and might be outdated in the future. The data was scraped and sanitized by [@Shahriyar](https://github.com/ShahriyarShawon), I just wrote a silly little python script on top to display it. 
+  **NOTE**: The data is sourced directly from the `courses.csv` file in the `drexelfetch` package, and might be outdated in the future. The data was scraped and sanitized by [@Shahriyar](https://github.com/ShahriyarShawon), I just wrote a silly little python script on top to display it. 
 
   The tool was originally meant for personal use only and doesn't follow any "good" code practices. I make no guarantees about the correctness, error checking or the aesthetics of the code.
 
