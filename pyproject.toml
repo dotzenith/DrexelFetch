@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "drexelfetch"
-version = "0.1.1"
+version = "0.2.0"
 description = "A fetch tool for drexel courses"
 authors = ["dotzenith <contact@danshu.co>"]
 license = "MIT"

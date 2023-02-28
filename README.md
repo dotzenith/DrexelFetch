@@ -37,7 +37,7 @@ pip3 install drexelfetch
 git clone https://github.com/dotzenith/DrexelFetch.git
 cd DrexeFetch
 poetry build
-pip3 install ./dist/drexelfetch-0.1.1.tar.gz
+pip3 install ./dist/drexelfetch-0.2.0.tar.gz
 ```
 
 ### ❖ Usage 
@@ -65,7 +65,7 @@ dfetch prereq "MATH 201"
 ---
 
 ### ❖ What's New? 
-0.1.1 - Fixed file import issues
+0.2.0 - Change the data source with cleaner data
 
 ---
 

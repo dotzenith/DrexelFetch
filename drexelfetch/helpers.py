@@ -15,4 +15,4 @@ def get_courses_df() -> pl.DataFrame:
     with resources.as_file(
         resources.files(__package__).joinpath("courses.csv")
     ) as path:
-        return pl.read_csv(path, sep=",")
+        return pl.read_csv(path, sep="|")

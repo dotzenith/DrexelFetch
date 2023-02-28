@@ -10,11 +10,6 @@ import drexelfetch.fetch as fetch
 app = typer.Typer(add_completion=False)
 colors = make_kolorz()
 
-"""
-course number,course name,credits,prereqs,desc
-"""
-
-
 @app.command()
 def info(course: str = typer.Argument(..., help="The course name, ex. CS 164")):
     """
@@ -26,16 +21,17 @@ def info(course: str = typer.Argument(..., help="The course name, ex. CS 164")):
         return
 
     print(
-        f"{colors.red}{'Course ID:' : <14}{colors.end} {course_info['course number']}"
+        f"{colors.red}{'Course ID:' : <14}{colors.end} {course_info['code']}"
     )
     print(
-        f"{colors.blue}{'Course Name:' : <14}{colors.end} {course_info['course name']}"
+        f"{colors.blue}{'Course Name:' : <14}{colors.end} {course_info['name']}"
     )
     print(f"{colors.orange}{'Credits:' : <14}{colors.end} {course_info['credits']}")
     print(
         f"{colors.green}{'Prerequisites:' : <14}{colors.end} {course_info['prereqs']}"
     )
-    print(f"{colors.yellow}{'Description:' : <14}{colors.end} {course_info['desc']}")
+    print(f"{colors.purple}{'WI:' : <14}{colors.end} {course_info['wi']}")
+    print(f"{colors.yellow}{'Description:' : <14}{colors.end} {course_info['description']}")
 
 
 @app.command()
